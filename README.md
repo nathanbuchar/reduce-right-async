@@ -1,4 +1,4 @@
-ReduceRightAsync [![Build Status](https://travis-ci.org/nathanbuchar/reduce-async.svg?branch=master)](https://travis-ci.org/nathanbuchar/reduce-async)
+ReduceRightAsync [![Build Status](https://travis-ci.org/nathanbuchar/reduce-right-async.svg?branch=master)](https://travis-ci.org/nathanbuchar/reduce-right-async)
 ===========
 
 Asynchronous `Array.reduceRight`. The [`reduceRight()`][external_mdn_reduce-right] method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value.
@@ -31,7 +31,7 @@ reduceRightAsync(array, iteratee, done[, initialValue])
 
   * `curr` *Any* - The current element being processed in the array.
 
-  * `n` *Integer* - The index of the current element being processed in the array. Start at index 0, if an `initialValue` is provided, and at index 1 otherwise.
+  * `n` *Integer* - The index of the current element being processed in the array.
 
   * `arr` *Array* - The array `reduceRightAsync` was called upon.
 
@@ -42,7 +42,7 @@ reduceRightAsync(array, iteratee, done[, initialValue])
 
 * **`initialValue`** *Any* (Optional) - Value to use as the first argument to the first call of the `iteratee`.
 
-[More information][external_mdn_reduce] on how `reduce` works.
+[More information][external_mdn_reduce-right] on how `reduceRight` works.
 
 
 ### Examples
@@ -67,20 +67,20 @@ reduceRightAsync(array, iteratee, done[, initialValue])
       next(prev.concat(curr));
     });
   }, result => {
-    // result is [0, 1, 2, 3, 4, 5]
+    // result is [4, 5, 2, 3, 0, 1]
   }));
   ```
 
-* Asynchronously concatenate all words within an array together starting from an initial value of `"foo"`.
+* Asynchronously concatenate all words within an array together starting from an initial value of `"baz"`.
 
   ```js
-  reduceRightAsync(['bar', 'baz']], (prev, curr, n, arr, next) => {
+  reduceRightAsync(['foo', 'bar']], (prev, curr, n, arr, next) => {
     doSomethingAsync(() => {
       next(prev + curr);
     });
   }, result => {
-    // result is "foobarbaz"
-  }, 'foo'));
+    // result is "bazbarfoo"
+  }, 'baz'));
   ```
 
 
@@ -103,6 +103,6 @@ License
 
 
 
-[external_mdn_reduce]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight
+[external_mdn_reduce-right]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/ReduceRight
 
 [Nathan Buchar]: mailto:hello@nathanbuchar.com
