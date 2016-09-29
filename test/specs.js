@@ -74,6 +74,19 @@ describe('reduceRightAsync', () => {
         done();
       });
     });
+
+    it('should skip empty items in the array', done => {
+      const _arr = ['foo', 'bar', , 'baz'];
+      let _step = 0;
+
+      reduceRightAsync(_arr, (prev, curr, n, arr, next) => {
+        _step++;
+        next();
+      }, () => {
+        expect(_step).to.equal(_arr.length - 2);
+        done();
+      });
+    });
   });
 
   describe('iteratee', () => {

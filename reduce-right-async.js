@@ -95,8 +95,12 @@ module.exports = function reduceRightAsync(arr, iteratee, done /*, initialValue*
    * @private
    */
   function _iterator(n) {
-    if (n in _arr) {
-      iteratee(_value, _arr[n], n, _arr, _next(n));
+    if (n >= 0 && n < _len) {
+      if (n in _arr) {
+        iteratee(_value, _arr[n], n, _arr, _next(n));
+      } else {
+        _iterator(--n);
+      }
     } else {
       done(_value);
     }
