@@ -1,7 +1,7 @@
 ReduceRightAsync [![Build Status](https://travis-ci.org/nathanbuchar/reduce-right-async.svg?branch=master)](https://travis-ci.org/nathanbuchar/reduce-right-async)
 ===========
 
-Asynchronous `Array.reduceRight`. The [`reduceRight()`][external_mdn_reduce-right] method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value.
+Asynchronous `Array.reduceRight`. The [`reduceRight()`][external_mdn_reduce-right] method applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
 
 
 
